@@ -1,0 +1,60 @@
+﻿@*@using PagedList.Mvc
+    @using PagedList*@
+@using MvcKutuphane.Models.Entity
+@*@model MvcKutuphane.Models.Entity.Kitap*@
+@model  List<TBLKitap>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<script type="text/javascript">
+    function silme() {
+        if (confirm("Silmek istediğinize emin misiniz?") == true) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+</script>
+@using (Html.BeginForm("Index", "Kitap",FormMethod.Get))
+{
+<div style="margin-bottom:15px; margin-top:15px;">
+    <b>Aranacak Kitap Adını giriniz :</b>
+    @Html.TextBox("p",null,new { @class = "form-control" })
+    <input type="submit" class="btn btn-dark" value="Ara" />
+</div>
+}
+<table class="table table-bordered">
+    <tr>
+        <td>Kitap Adı</td>
+        <td>Kitap Yazarı</td>
+        <td>Kategori</td>
+        <td>Basım Yılı</td>
+        <td>Yayın Evi</td>
+        <td>Sayfa Sayısı</td>
+        <td>Durum</td>
+        <td>Sil</td>
+        <td>Güncelle</td>
+    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@item.KitapAd</td>
+    <td>@item.TBLYazar.YazarAd&nbsp @item.TBLYazar.YazarSoyad</td>
+    <td>@item.TBLKategori.KategoriAd</td>
+    <td>@item.BasimYil</td>
+    <td>@item.YayinEvi</td>
+    <td>@item.SayfaSayisi</td>
+    <td>@item.Durum</td>
+    <td><a href="/Kitap/KitapSil/@item.KitapID" onclick="return confirm('Silmek istediğinizden emin misiniz ?')" class="btn btn-danger">Sil</a></td>
+    <td><a href="/Kitap/KitapGetir/@item.KitapID" class="btn btn-primary">Güncelle</a></td>
+</tr>
+}
+</table>
+<a href="/Kitap/KitapEkle/" class="btn btn-primary">Yeni Kitap Ekle</a>
+
+
+
+

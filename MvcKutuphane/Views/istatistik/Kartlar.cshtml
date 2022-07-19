@@ -1,0 +1,144 @@
+﻿
+@{
+    ViewBag.Title = "Kartlar";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<head>
+    <title>Esteem  An Admin Panel Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+    <!-- custom-theme -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Esteem Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript">
+        addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+               function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //custom-theme -->
+    @*<link href="~/Projetemalar/web3/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />*@
+    <link href="~/Projetemalar/web3/css/component.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Projetemalar/web3/css/export.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Projetemalar/web3/css/flipclock.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Projetemalar/web3/css/circles.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Projetemalar/web3/css/style_grid.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="~/Projetemalar/web3/css/style.css" rel="stylesheet" type="text/css" media="all" />
+ 
+    <!-- font-awesome-icons -->
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <!-- //font-awesome-icons -->
+    @*<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">*@
+</head>
+<h2>Kartlar</h2>
+
+<ul class="ca-menu">
+    <li>
+        <a href="#">
+            <i class="fa fa-book" aria-hidden="true"></i>
+            <div class="ca-content">
+                <h4 class="ca-main"> @ViewBag.kitapsayisi</h4>  
+                <h3 class="ca-sub">Kitap Sayısı</h3>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <div class="ca-content">
+                <h4 class="ca-main one">@ViewBag.Uyesayisi</h4>
+                <h3 class="ca-sub one">Üye Sayısı</h3>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="fa fa-money-bill-alt" aria-hidden="true"></i>
+            <div class="ca-content">
+                <h4 class="ca-main two">@ViewBag.kasatutar ₺</h4>
+                <h3 class="ca-sub two">Kasadaki Tutar</h3>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="fa fa-book-reader" aria-hidden="true"></i>
+            <div class="ca-content">
+                <h4 class="ca-main three">@ViewBag.odunckitap</h4>
+                <h3 class="ca-sub three">Ödünç Kitaplar</h3>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="fa fa-list" aria-hidden="true"></i>
+            <div class="ca-content">
+                <h4 class="ca-main four">@ViewBag.kategorisayisi</h4>
+                <h3 class="ca-sub four">Kategori Sayısı</h3>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+
+            <i class="fa fa-user-check" aria-hidden="true"></i>
+            <div class="ca-content">
+                <h4 class="ca-main">@ViewBag.aktifuye</h4>
+                <h3 class="ca-sub">En Aktif Üye</h3>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="fa fa-book-open" aria-hidden="true"></i>
+            <div class="ca-content">
+                <h4 class="ca-main one">@ViewBag.encokokunankitap</h4>
+                <h3 class="ca-sub one">En Çok Okunan Kitap</h3>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="fa fa-pen" aria-hidden="true"></i>
+            <div class="ca-content">
+                <h4 class="ca-main two">@ViewBag.enfazlakitapyazar</h4>
+                <h3 class="ca-sub two">En fazla kitabı olan yazar</h3>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="fa fa-barcode" aria-hidden="true"></i>
+            <div class="ca-content">
+                <h4 class="ca-main three">@ViewBag.eniyiyayinevi</h4>
+                <h3 class="ca-sub three">En İyi Yayın Evi</h3>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="fa fa-person-booth" aria-hidden="true"></i>
+            <div class="ca-content">
+                <h4 class="ca-main four">@ViewBag.enbasarilipersonel</h4>
+                <h3 class="ca-sub four">En Başarılı Personel</h3>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+
+            <i class="fa fa-mail-bulk" aria-hidden="true"></i>
+            <div class="ca-content">
+                <h4 class="ca-main">@ViewBag.mesajsayisi</h4>
+                <h3 class="ca-sub">Toplam Mesaj Sayısı</h3>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="fa fa-calendar-day" aria-hidden="true"></i>
+            <div class="ca-content">
+                <h4 class="ca-main one">@ViewBag.kitapdurum</h4>
+                <h3 class="ca-sub one">Bugünkü  Emanetler</h3>
+            </div>
+        </a>
+    </li>
+  
+</ul>

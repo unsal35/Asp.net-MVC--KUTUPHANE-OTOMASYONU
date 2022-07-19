@@ -1,0 +1,90 @@
+﻿@using MvcKutuphane.Models.Entity
+@*@model List<TBLUyeler>*@
+@model  PagedList.IPagedList<TBLUyeler>
+@using PagedList.Mvc
+@using PagedList
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<script type="text/javascript">
+    function silme() {
+        if (confirm("Silmek istediğinize emin misiniz?") == true) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+</script>
+<h2>Üye Listesi</h2>
+<table class="table table-responsive-lg">
+    <tr class="thead-dark">
+        <th>#</th>
+        <th>Üye Adı</th>
+        <th>Üye Soyadı</th>
+        <th>Mail</th>
+        <th>Kullanıcı Adı</th>
+        <th>Şifre</th>
+        <th>Telefon</th>
+        <th>Okul</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Üyenin Aldığı Kitaplar</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.UyeID</td>
+            <td>@item.UyeAd</td>
+            <td>@item.UyeSoyad</td>
+            <td>@item.UyeMail</td>
+            <td>@item.UyeKullaniciAdi</td>
+            <td>@item.UyeSifre</td>
+            <td>@item.UyeTelefon</td>
+            <td>@item.UyeOkul</td>
+            <td><a href="/Uyeler/UyeGetir/@item.UyeID"  class="btn btn-primary">Güncelle</a></td>
+            <td><a href="/Uyeler/UyeSil/@item.UyeID" onclick="return confirm('Silmek istediğinizden emin misiniz ?')"  class="btn btn-danger">Sil</a></td>
+            <td><a href="/Uyeler/UyeKitaplar/@item.UyeID" class="btn btn-outline-success">Üyenin Aldığı Kitaplar</a></td>
+        
+        </tr>
+    }
+</table>
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }))
+<br />
+<br />
+<button class="btn btn-info" data-toggle="modal" data-target="#modal1">Yeni Üye Ekle</button>
+<div class="modal" id="modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Yeni Üye Ekleme Paneli</h2>
+            </div>
+            <form method="post" action="/Uyeler/UyeEkle">
+                <div class="modal-body">
+                    <label>Üye Adı</label>
+                    <input type="text" required name="UyeAd" class="form-control" />
+                    <label>Üye Soyadı</label>
+                    <input type="text" required name="UyeSoyad" class="form-control" />
+                    <label>Üye Mail</label>
+                    <input type="text" required name="UyeMail" class="form-control" />
+                    <label>Üye Kullanıcı Adı</label>
+                    <input type="text" required name="UyeKullaniciAdi" class="form-control" />
+                    <label>Üye Şifre</label>
+                    <input type="password" required name="UyeSifre" class="form-control" />
+                    <label>Üye Telefon</label>
+                    <input type="text" maxlength="11" placeholder="0 (5xx) xxx xx xx" required name="UyeTelefon" class="form-control" />
+                    <label>Üye Okul</label>
+                    <input type="text" required name="UyeOkul" class="form-control" />
+                    <label>Üye Fotograf</label>
+                    <input type="text" name="UyeFotograf" class="form-control" />
+                    <br />
+                    <br />
+                    <button class="btn btn-info">Üye Kaydet</button>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

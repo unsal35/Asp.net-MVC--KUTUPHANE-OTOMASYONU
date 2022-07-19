@@ -1,0 +1,27 @@
+﻿
+@model MvcKutuphane.Models.Entity.TBLKitap
+@{
+    ViewBag.Title = "KitapGetir";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@using (Html.BeginForm("Guncelle", "Kitap"))
+{
+    <label>Yazar ID</label>
+    @Html.TextBoxFor(p => p.KitapID, new { @class = "form-control" })
+    <label>Kitap Adı</label>
+    @Html.TextBoxFor(p => p.KitapAd, new { @class = "form-control" })
+    <label>Kategori </label>
+    @Html.DropDownListFor(p => p.TBLKategori.ID, (List<SelectListItem>)ViewBag.KitapKategori, new { @class = "form-control" })
+    <label>Yazar </label>
+    @Html.DropDownListFor(p => p.TBLYazar.YazarID, (List<SelectListItem>)ViewBag.KitapYazar, new { @class = "form-control" })
+    <label>Basım Yılı </label>
+    @Html.TextBoxFor(p => p.BasimYil, new { @class = "form-control" })
+    <label>Yayın Evi </label>
+    @Html.TextBoxFor(p => p.YayinEvi, new { @class = "form-control" })
+    <label>Sayfa Sayısı </label>
+    @Html.TextBoxFor(p => p.SayfaSayisi, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Güncelle</button>
+
+}

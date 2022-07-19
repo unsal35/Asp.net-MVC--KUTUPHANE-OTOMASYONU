@@ -1,0 +1,34 @@
+﻿
+
+@foreach (var item in Model)
+{
+    <div class="post">
+
+        <div class="user-block">
+            <img class="img-circle img-bordered-sm" src="~/img/duyuru.png" />
+            
+
+            <span class="username">
+
+                <b class="text-red">@item.kategori</b>
+
+          
+
+            </span>
+
+            <span class="description">@Convert.ToDateTime(@item.Tarih).ToString("dd-MMMM-yyyy")</span>
+
+        </div>
+
+        <!-- /.user-block -->
+
+        <p>
+
+          @item.Icerik
+
+        </p>
+
+
+       
+    </div>
+    }

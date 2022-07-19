@@ -1,0 +1,26 @@
+﻿@model MvcKutuphane.Models.Entity.TBLHareket
+@{
+    ViewBag.Title = "OduncIade";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>İade Sayfası</h2>
+<form method="post" action="/Odunc/Guncelle/">
+    <label>#</label>
+    @Html.TextBoxFor(p => p.ID, new { @class = "form-control", @readonly = "readonly" })
+    <label>Kitap Adı</label>
+    @Html.TextBoxFor(p => p.TBLKitap.KitapAd, new { @class = "form-control", @required = "required" })
+    <label>Üye Adı</label>
+    @Html.TextBoxFor(p => p.TBLUyeler.UyeAd, new { @class = "form-control", @required = "required" })
+    <label>Personel Adı</label>
+    @Html.TextBoxFor(p => p.TBLPersonel.Personel, new { @class = "form-control", @required = "required" })
+    <label>Alış Tarihi</label>
+    @Html.TextBoxFor(p => p.AlisTarihi, "{0:dd-MM-yyyy}", new { @class = "form-control",@readonly="readonly", @required = "required" })
+    <label>İade Tarihi</label>
+    @Html.TextBoxFor(p => p.IadeTarihi, "{0:dd-MM-yyyy}", new { @class = "form-control", @readonly = "readonly", @required = "required" })
+    <label>Geri Veriliş Tarihi</label>
+    <input type="text" class="form-control" name="UyeGetirTarih" readonly value="@DateTime.Now.ToShortDateString()" />
+    <input type="text" class="form-control" value="@ViewBag.sure" />
+    <br /><br />
+    <button class="btn btn-success">Ödünç Kitabı Geri Al</button>
+</form>

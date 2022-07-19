@@ -1,0 +1,22 @@
+﻿@model MvcKutuphane.Models.Entity.TBLDuyurular
+
+@{
+    ViewBag.Title = "DuyuruDetay";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>DuyuruDetay</h2>
+
+@using (Html.BeginForm("Guncelle", "Duyurular",FormMethod.Post))
+{
+    <label>ID</label>
+    @Html.TextBoxFor(p => p.ID, new { @class = "form-control" })
+    <label>Kategori</label>
+    @Html.TextBoxFor(p => p.kategori, new { @class = "form-control" })
+    <label>İcerik</label>
+    @Html.TextAreaFor(p => p.Icerik, 3, 5, new { @class = "form-control" })
+    <input type="hidden" name="Tarih" value="@DateTime.Now" />
+    <br />
+    <button class="btn btn-primary">Güncelle</button>
+
+}

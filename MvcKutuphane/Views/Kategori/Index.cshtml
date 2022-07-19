@@ -1,0 +1,56 @@
+﻿@using MvcKutuphane.Models.Entity
+@model List<TBLKategori>
+@{string durum = "";}
+@{string renk = "";}
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+<script type="text/javascript">
+    function silme() {
+        if (confirm("Silmek istediğinize emin misiniz?") == true) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+</script>
+<h2> Kategori Listesi</h2>
+<table class="table table-bordered">
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Kategori Adı</th>
+        <th scope="col">Durum</th>
+        <th scope="col">Güncelle</th>
+        <th scope="col">Gizle</th>
+        <th scope="col">Göster</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        if (item.KategoriDurum == true)
+        {
+
+            durum= "Yayında!";
+            renk = "badge badge-success";
+        }
+        else {
+            durum = "Yayında Değil";
+            renk = "badge badge-danger";
+        }
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.KategoriAd</td>
+            <td><div class="@renk">@durum</div></td>
+            <td><a href="/Kategori/KategoriGetir/@item.ID" class="btn btn-primary">Güncelle</a></td>
+            <td><a href="/Kategori/KategoriFalse/@item.ID" onclick="return confirm('Yayından kaldırmak istediğinizden emin misiniz ?')" class="btn btn-success">Gizle</a></td>
+            <td><a href="/Kategori/KategoriTrue/@item.ID" onclick="return confirm('Yayınlamak istediğinizden emin misiniz ?')" class="btn btn-secondary">Göster</a></td>
+        </tr>
+    }
+</table>
+<br />
+<br />
+<a href="/Kategori/YeniKategori/" class="btn btn-primary">Yeni Kategori Ekle</a>
+
+ 

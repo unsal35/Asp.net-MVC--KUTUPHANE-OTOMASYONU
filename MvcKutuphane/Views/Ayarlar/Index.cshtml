@@ -1,0 +1,100 @@
+﻿@using MvcKutuphane.Models.Entity
+@*@model List<Admin>*@
+@using PagedList
+@using PagedList.Mvc
+@model IPagedList<Admin>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<head>
+    <script language="javascript">function confirmDel() { var agree = confirm("Bu içeriği silmek istediğinizden emin misiniz?\nBu işlem geri alınamaz!"); if (agree) { return true; } else { return false; } }</script>
+
+</head>
+
+<section class="content">
+
+    <!-- Default box -->
+    <div class="card card-solid">
+        <div class="card-body pb-0">
+            <div class="row d-flex align-items-stretch">
+                @foreach (var item in Model)
+                {
+                    <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch">
+                        <div class="card bg-light">
+                            <div class="card-header text-muted border-bottom-0">
+
+                            </div>
+                            <div class="card-body pt-0">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="lead"><b>@item.Kulladi</b></h2>
+                                        <p class="text-muted text-sm"><b>ROL : </b>@item.Yetki</p>
+                                        <ul class="ml-4 mb-0 fa-ul text-muted">
+                                            <li class="small"><span class="fa-li"><i class="fas fa-lg fa-mail-bulk"></i></span> @item.Mail</li>
+                                            <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> @item.Telefon</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-5 text-center">
+                                        <img src="@item.Resim" alt="" class="img-circle img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="text-right">
+                                    <a href="/Ayarlar/Sil/@item.ID" onclick="return confirmDel();" class="btn btn-sm bg-teal">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                    <a href="/Ayarlar/AdminDuzenle/@item.ID" class="btn btn-sm btn-primary">
+                                        <i class="fas fa-user"></i> Düzenle
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <!-- /.card-body -->
+        <div class="card-footer">
+            @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }))
+            <button class="btn btn-info" data-toggle="modal" data-target="#modal1">Yeni Admin Ekle</button>
+            <div class="modal" id="modal1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="modal-title">Yeni Admin Ekle</h2>
+                        </div>
+                        <form method="post" action="/Ayarlar/AdminEkle">
+                            <div class="modal-body">
+                                <label>Admin Kullanıcı Adı</label>
+                                <input type="text" required name="Kulladi" class="form-control" />
+                                <label>Admin Şifre</label>
+                                <input type="password" required name="Sifre" class="form-control" />
+                                <label>Admin ROL</label>
+                                <select name="Yetki" class="form-control" required>
+                                    <option selected>Rol Seçiniz</option>
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>                        
+                                </select>
+                                <label>Admin Resim URL</label>
+                                <input type="text" name="Resim" class="form-control" />
+                                <label>Admin Telefon</label>
+                                <input type="tel" min="11" maxlength="11" required name="Telefon" class="form-control" />
+                                <label>Admin Mail Adresi</label>
+                                <input type="email" required name="Mail" class="form-control" />
+                                <br />
+                                <button class="btn btn-primary">Admin Ekle</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.card-footer -->
+    </div>
+    <!-- /.card -->
+
+
+</section>

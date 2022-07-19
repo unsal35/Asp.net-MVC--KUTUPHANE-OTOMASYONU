@@ -1,0 +1,69 @@
+﻿@model MvcKutuphane.Models.Entity.TBLUyeler
+
+@using (Html.BeginForm("Index", "Panel", FormMethod.Post)) {
+
+<form class="form-horizontal" method="post" action="/Pane">
+    <div class="form-group row">
+        <label for="inputName" class="col-sm-2 col-form-label">Üye Adı</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(p => p.UyeAd, new {@class="form-control"})
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputEmail" class="col-sm-2 col-form-label">Üye Soyad</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(p => p.UyeSoyad, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputName2" class="col-sm-2 col-form-label">Üye Mail</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(p => p.UyeMail, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputExperience" class="col-sm-2 col-form-label">Üye KullanıcıAdı</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(p => p.UyeKullaniciAdi, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputExperience" class="col-sm-2 col-form-label">Üye Şifre</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(p => p.UyeSifre, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputExperience" class="col-sm-2 col-form-label">Üye Telefon</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(p => p.UyeTelefon, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputExperience" class="col-sm-2 col-form-label">Üye Okul</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(p => p.UyeOkul, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputExperience" class="col-sm-2 col-form-label">Üye Fotograf</label>
+        <div class="col-sm-10">
+            @Html.TextBoxFor(p => p.UyeFotograf, new { @class = "form-control" })
+        </div>
+    </div>    
+      <div class="form-group row">
+        <div class="offset-sm-2 col-sm-10">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox"> I agree to the <a href="#">terms and conditions</a>
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="offset-sm-2 col-sm-10">
+            <button type="submit" class="btn btn-danger">Güncelle</button>
+        </div>
+    </div>
+</form>
+}

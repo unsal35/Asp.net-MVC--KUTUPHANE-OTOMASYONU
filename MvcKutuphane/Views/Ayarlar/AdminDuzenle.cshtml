@@ -1,0 +1,31 @@
+﻿@model MvcKutuphane.Models.Entity.Admin
+@{
+    ViewBag.Title = "AdminDuzenle";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Admin Güncelle</h2>
+@using  (Html.BeginForm("Guncelle", "Ayarlar", FormMethod.Post))
+{
+    <label>ID</label>
+    @Html.TextBoxFor(p => p.ID, new { @class = "form-control", @readonly = "readonly" })
+    <label>Kullanıcı Adı</label>
+    @Html.TextBoxFor(p => p.Kulladi, new { @class = "form-control",  })
+    <label>Şifre</label>
+    @Html.TextBoxFor(p => p.Sifre, new { @class = "form-control",  })
+    <label>Yetki</label>
+    <select name="Yetki" class="form-control">
+        <option @Model.Yetki>@Model.Yetki</option>
+        <option value="A">A</option>
+        <option value="B">B</option>
+    </select>
+    <label>Resim</label>
+    @Html.TextBoxFor(p => p.Resim, new { @class = "form-control" })
+    <label>Telefon</label>
+    @Html.TextBoxFor(p => p.Telefon, new { @class = "form-control",  })
+    <label>Mail</label>
+    @Html.TextBoxFor(p => p.Mail, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Güncelle</button>
+
+}

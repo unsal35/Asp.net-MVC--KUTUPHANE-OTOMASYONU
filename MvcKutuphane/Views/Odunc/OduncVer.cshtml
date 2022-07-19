@@ -1,0 +1,27 @@
+﻿@model MvcKutuphane.Models.Entity.TBLHareket
+@{
+    ViewBag.Title = "OduncVer";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<form method="post">
+    <label>Üye Adı</label>
+    @Html.DropDownListFor(p => p.Uye, (List<SelectListItem>)ViewBag.Uyeler, new {@class="form-control"})
+    <label>Kitaplar</label>
+    @Html.DropDownListFor(p => p.Kitap, (List<SelectListItem>)ViewBag.Kitaplar, new {@class="form-control"})
+    <label>Personel</label>
+    @Html.DropDownListFor(p => p.Personel, (List<SelectListItem>)ViewBag.Personel, new {@class="form-control"})
+    <label>Kitap Alış Tarihi</label>
+    <input type="text" class="form-control" name="AlisTarihi" readonly value="@DateTime.Now.ToShortDateString() " />
+    <label>Kitap İade Tarihi</label>
+    <input type="text" class="form-control" name="IadeTarihi" readonly value="@DateTime.Now.AddDays(7).ToShortDateString()" />
+    <br />
+    <br />
+    <button class="btn btn-primary">Kitabı Ödünç ver</button>
+    <input type="hidden" class="form-control" name="IslemDurum" readonly value="False" />
+
+</form>
+
+
+
+

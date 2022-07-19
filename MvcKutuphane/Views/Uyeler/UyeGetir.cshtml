@@ -1,0 +1,31 @@
+﻿@using MvcKutuphane.Models.Entity
+@model MvcKutuphane.Models.Entity.TBLUyeler 
+@{
+    ViewBag.Title = "UyeGetir";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Üye Güncelle</h2>
+<form method="post" action="/Uyeler/Guncelle/">
+    <label>Uye ID</label>
+    @Html.TextBoxFor(p => p.UyeID, new { @class = "form-control", @readonly = "readonly" })
+    <label>Uye Adı</label>
+    @Html.TextBoxFor(p => p.UyeAd, new { @class = "form-control", @required = "required" })
+    <label>Uye Soyadı</label>
+    @Html.TextBoxFor(p => p.UyeSoyad, new { @class = "form-control", @required = "required" })
+    <label>Uye  Mail</label>
+    @Html.TextBoxFor(p => p.UyeMail, new { @class = "form-control", @required = "required" })
+    <label>Uye Kullanıcı Adı</label>
+    @Html.TextBoxFor(p => p.UyeKullaniciAdi, new { @class = "form-control", @required = "required" })
+    <label>Uye Şifre</label>
+    @Html.TextBoxFor(p => p.UyeSifre, new { @class = "form-control", @required = "required" })
+    <label>Uye Telefon</label>
+    @Html.TextBoxFor(p => p.UyeTelefon, new { @class = "form-control", @required = "required", @placeholder = "0 (5xx) xxx xx xx" })
+    <label>Uye Okul</label>
+    @Html.TextBoxFor(p => p.UyeOkul, new { @class = "form-control", @required = "required" })
+<br />
+<br />
+<button class="btn btn-info">Güncelle</button>
+</form>
+
+
